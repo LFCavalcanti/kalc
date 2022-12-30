@@ -1,0 +1,24 @@
+.keypad{
+    color: #FFFFFF;
+    display: block;
+    width: auto;
+    padding: 5px;
+    background: linear-gradient(360deg,#383836 10%,#4a4a4a 360%);
+    display: flex;
+    flex-direction: row;
+}
+.advop {
+    background-color: chartreuse;
+    padding: 5px;
+    width: 25%;
+}
+.numbers {
+    background-color: aqua;
+    padding: 5px;
+    width: 50%;
+}
+.operations {
+    background-color: darkgreen;
+    padding: 5px;
+    width: 25%;
+}

@@ -11,11 +11,14 @@
     background: linear-gradient(#cfd9df, #e2ebf0);
     max-width: 50%;
     min-width: 25rem;
+    min-height: 25rem;
     display: flex;
+    flex-direction: column;
     margin-left: auto;
     margin-right: auto;
     border-radius: 0.25rem;
-    box-shadow: 2px 2px 4px #696969;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    padding: 5px;
 }
 
 .logo {

@@ -1,5 +1,7 @@
 import styles from './Kalc.module.scss'
 import {ReactComponent as Logo} from './assets/logo_kalc.svg';
+import DisplayTxt from './components/DisplayTxt';
+import Keypad from './components/Keypad';
 
 export default function Kalc(){
     return (
@@ -9,7 +11,8 @@ export default function Kalc(){
                 <span id="app-name" className={styles.titulo}>KALC</span>
             </div>
             <div role={'main'} className={styles.frame}>
-                <p>TESTE</p>
+                <DisplayTxt />
+                <Keypad />
             </div>
         </>
     )
