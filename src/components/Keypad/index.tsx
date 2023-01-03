@@ -1,3 +1,4 @@
+import BtnKeypad from '../BtnKeypad'
 import styles from './Keypad.module.scss'
 export default function Keypad(){
     return(
@@ -9,37 +10,36 @@ export default function Keypad(){
 
             <div className={styles.buttons}>
                 <div className={styles.advop}>
-                    <button>X²</button>
-                    <button>RAIZ QDR X</button>
-                    <button>X ^ Y</button>
-                    <button>10 ^ X</button>
-                    <button>LOG</button>
-                    <button>N!</button>
-                    <button>MOD</button>
+                    <BtnKeypad text="X²" variant="op"></BtnKeypad>
+                    <BtnKeypad text="SQRT X" variant='op'></BtnKeypad>
+                    <BtnKeypad text="X^Y" variant='op'></BtnKeypad>
+                    <BtnKeypad text="10^X" variant='op'></BtnKeypad>
+                    <BtnKeypad text="LOG" variant='op'></BtnKeypad>
+                    <BtnKeypad text="N!" variant='op'></BtnKeypad>
+                    <BtnKeypad text="MOD" variant='op'></BtnKeypad>
                 </div>
                 <div className={styles.numbers}>
-                    <button>:</button>
-                    <button>(</button>
-                    <button>)</button>
-                    <button>7</button>
-                    <button>8</button>
-                    <button>9</button>
-                    <button>4</button>
-                    <button>5</button>
-                    <button>6</button>
-                    <button>1</button>
-                    <button>2</button>
-                    <button>3</button>
-                    <button>+/-</button>
-                    <button>0</button>
-                    <button>,</button>
-
+                    <BtnKeypad text=":"></BtnKeypad>
+                    <BtnKeypad text="("></BtnKeypad>
+                    <BtnKeypad text=")"></BtnKeypad>
+                    <BtnKeypad text="7"></BtnKeypad>
+                    <BtnKeypad text="8"></BtnKeypad>
+                    <BtnKeypad text="9"></BtnKeypad>
+                    <BtnKeypad text="4"></BtnKeypad>
+                    <BtnKeypad text="5"></BtnKeypad>
+                    <BtnKeypad text="6"></BtnKeypad>
+                    <BtnKeypad text="1"></BtnKeypad>
+                    <BtnKeypad text="2"></BtnKeypad>
+                    <BtnKeypad text="3"></BtnKeypad>
+                    <BtnKeypad text="+/-"></BtnKeypad>
+                    <BtnKeypad text="0"></BtnKeypad>
+                    <BtnKeypad text=","></BtnKeypad>
                 </div>
                 <div className={styles.operations}>
-                    <button>/</button>
-                    <button>X</button>
-                    <button>-</button>
-                    <button>+</button>
+                    <BtnKeypad text="/" variant="op"></BtnKeypad>
+                    <BtnKeypad text="X" variant="op"></BtnKeypad>
+                    <BtnKeypad text="-" variant="op"></BtnKeypad>
+                    <BtnKeypad text="+" variant="op"></BtnKeypad>
                     <button>=</button>
                 </div>
             </div>
