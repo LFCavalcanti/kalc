@@ -1,11 +1,15 @@
+import BtnClear from '../BtnClear'
+import BtnExec from '../BtnExec'
 import BtnKeypad from '../BtnKeypad'
 import styles from './Keypad.module.scss'
 export default function Keypad(){
     return(
         <>        
             <div className={styles.clearBtn}>
-                <button>C</button>
-                <button>AC</button>
+                <BtnClear text="AC" variant="ac"></BtnClear>
+                {<div>
+                    <p>ERROR DISPLAY</p>
+                </div>}
             </div>
 
             <div className={styles.buttons}>
@@ -19,9 +23,9 @@ export default function Keypad(){
                     <BtnKeypad text="MOD" variant='op'></BtnKeypad>
                 </div>
                 <div className={styles.numbers}>
-                    <BtnKeypad text=":"></BtnKeypad>
                     <BtnKeypad text="("></BtnKeypad>
                     <BtnKeypad text=")"></BtnKeypad>
+                    <BtnClear text="C"></BtnClear>
                     <BtnKeypad text="7"></BtnKeypad>
                     <BtnKeypad text="8"></BtnKeypad>
                     <BtnKeypad text="9"></BtnKeypad>
@@ -40,7 +44,7 @@ export default function Keypad(){
                     <BtnKeypad text="X" variant="op"></BtnKeypad>
                     <BtnKeypad text="-" variant="op"></BtnKeypad>
                     <BtnKeypad text="+" variant="op"></BtnKeypad>
-                    <button>=</button>
+                    <BtnExec text="="></BtnExec>
                 </div>
             </div>
         </>

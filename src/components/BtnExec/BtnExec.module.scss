@@ -1,0 +1,30 @@
+@import "../../styleVariables.scss";
+$margin: 2px;
+$padding: 2px;
+$min-height: 70px;
+$max-height: 170px;
+$min-width: 70px;
+$max-width: 170px;
+$border-radius: 0.25rem;
+$border: 0;
+
+.btnExec {
+    margin: $margin;
+    padding: $padding;
+    color: $grey-neutral;
+    background-color: $green-dark;
+    min-height: $min-height;
+    max-height: $max-height;
+    min-width: $min-width;
+    max-width: $max-width;
+    border-radius: $border-radius;
+    border: $border;
+}
+.btnExec:hover {
+    background-color: $green-mid;
+    color: $grey-darkest;
+}
+.btnExec:active {
+    background-color: $green-light;
+    color: $grey-darkest;
+}

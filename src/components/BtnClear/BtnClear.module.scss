@@ -1,0 +1,47 @@
+@import "../../styleVariables.scss";
+$margin: 2px;
+$padding: 2px;
+$min-height: 70px;
+$max-height: 170px;
+$min-width: 70px;
+$max-width: 170px;
+$border-radius: 0.25rem;
+$border: 0;
+
+.btnC {
+    margin: $margin;
+    padding: $padding;
+    color: $grey-darkest;
+    background-color: $orange-mid;
+    min-height: $min-height;
+    max-height: $max-height;
+    min-width: $min-width;
+    max-width: $max-width;
+    border-radius: $border-radius;
+    border: $border;
+}
+.btnC:hover {
+    background-color: $yellow-mid;
+}
+.btnC:active {
+    background-color: $yellow-light;
+}
+
+.btnAc {
+    margin: $margin;
+    padding: $padding;
+    color: $grey-darkest;
+    background-color: $magenta-dark;
+    min-height: $min-height;
+    max-height: $max-height;
+    min-width: $min-width;
+    max-width: $max-width;
+    border-radius: $border-radius;
+    border: $border;
+}
+.btnAc:hover {
+    background-color: $magenta-mid;
+}
+.btnAc:active {
+    background-color: $magenta-light;
+}
