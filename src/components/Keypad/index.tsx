@@ -1,21 +1,32 @@
+import {displayErrorMsg} from '../../state/hooks/displayErrorMsg'
+import { getErrorMessage } from '../../state/hooks/getErrorMessage'
 import BtnClear from '../BtnClear'
 import BtnExec from '../BtnExec'
 import BtnKeypad from '../BtnKeypad'
 import styles from './Keypad.module.scss'
+
 export default function Keypad(){
+
+    const errorMessage = getErrorMessage()
+    const displayError = displayErrorMsg()
+
+    const calculate = () => {
+        displayError('TESTANDO MENSAGEM 5 segundos', 5000)
+    }
+
     return(
         <>        
             <div className={styles.clearBtn}>
                 <BtnClear text="AC" variant="ac"></BtnClear>
-                {<div>
-                    <p>ERROR DISPLAY</p>
-                </div>}
+                <div>
+                    {errorMessage && <p className={styles.errorMsg}>{errorMessage}</p>}
+                </div>
             </div>
 
             <div className={styles.buttons}>
                 <div className={styles.advop}>
                     <BtnKeypad text="X²" variant="op"></BtnKeypad>
-                    <BtnKeypad text="SQRT X" variant='op'></BtnKeypad>
+                    <BtnKeypad text="&#8730;" variant='op'></BtnKeypad>
                     <BtnKeypad text="X^Y" variant='op'></BtnKeypad>
                     <BtnKeypad text="10^X" variant='op'></BtnKeypad>
                     <BtnKeypad text="LOG" variant='op'></BtnKeypad>
@@ -44,7 +55,7 @@ export default function Keypad(){
                     <BtnKeypad text="X" variant="op"></BtnKeypad>
                     <BtnKeypad text="-" variant="op"></BtnKeypad>
                     <BtnKeypad text="+" variant="op"></BtnKeypad>
-                    <BtnExec text="="></BtnExec>
+                    <BtnExec text="=" onClick={calculate}></BtnExec>
                 </div>
             </div>
         </>

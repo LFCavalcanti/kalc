@@ -1,3 +1,6 @@
+@import "../../styleVariables.scss";
+$border-radius: 0.25rem;
+
 .keypad{
     color: #FFFFFF;
     display: flex;
@@ -49,4 +52,14 @@ button:hover {
 }
 button:active {
     background-color: #c7c7c7;
+}
+
+.errorMsg {
+    margin: 5px;
+    padding: 5px;
+    color: $blue-dark;
+    background-color: $red-mid;
+    border-radius: $border-radius;
+    min-width: 300px;
+    min-height: 50px;
 }
