@@ -1,8 +1,37 @@
+@import "../../styleVariables.scss";
+
 .pannel {
-    display: box;
-    background: linear-gradient(360deg,#383836 10%,#4a4a4a 360%);
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    background: linear-gradient(360deg,$blue-light 10%,$grey-neutral 360%);
+    box-shadow: inset 0 0 2px $grey-darkest;
     border-radius: 0.25rem;
     padding: 5px;
     margin: 15px 15px 0 15px;
     height: 100px;
+}
+
+.currFormula{
+    display: box;
+    color: $grey-dark;
+    text-align: right;
+    font-size: 25px;
+    margin: 2px;
+    padding: 5px;
+    height: 25px;
+    vertical-align: middle;
+    overflow: hidden;
+    direction: rtl;
+}
+
+.result{
+    color: $grey-darkest;
+    text-align: right;
+    font-size: 40px;
+    font-weight: 600;
+    margin: 2px;
+    padding: 5px;
+    height: 40px;
+    overflow: hidden;
 }

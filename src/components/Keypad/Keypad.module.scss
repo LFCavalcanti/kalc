@@ -13,12 +13,6 @@ $border-radius: 0.25rem;
     padding: 5px;
     //background: linear-gradient(360deg,#383836 10%,#4a4a4a 360%);
 }
-
-.errorDisplayer{
-    grid-column: span 3;
-}
-
-
 .buttons{
     display: flex;
     display: grid;
@@ -27,12 +21,16 @@ $border-radius: 0.25rem;
     //background: linear-gradient(360deg,#383836 10%,#4a4a4a 360%);
 }
 
+.errorDisplayer{
+    grid-column: span 3;
+}
 .errorMsg {
     margin: 2px;
     padding: 2px;
     color: $blue-dark;
     background-color: $red-mid;
     border-radius: $border-radius;
-    //min-width: 300px;
-    min-height: 64px;
+    font-size: 20px;
+    height: 65px;
+    overflow: hidden;
 }

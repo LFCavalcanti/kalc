@@ -1,5 +1,5 @@
-import {displayErrorMsg} from '../../state/hooks/displayErrorMsg'
-import { getErrorMessage } from '../../state/hooks/getErrorMessage'
+import {useDisplayErrorMsg} from '../../state/hooks/useDisplayErrorMsg'
+import { useErrorMessage } from '../../state/hooks/useErrorMessage'
 import BtnClear from '../BtnClear'
 import BtnExec from '../BtnExec'
 import BtnKeypad from '../BtnKeypad'
@@ -7,12 +7,13 @@ import styles from './Keypad.module.scss'
 
 export default function Keypad(){
 
-    const errorMessage = getErrorMessage()
-    const displayError = displayErrorMsg()
+    const errorMessage = useErrorMessage()
+    const displayError = useDisplayErrorMsg()
 
     const calculate = () => {
         displayError('TESTANDO MENSAGEM 5 segundos', 5000)
     }
+    
 
     return(
         <div className={styles.keypadFrame}>

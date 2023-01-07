@@ -1,3 +1,5 @@
+@import "./styleVariables.scss";
+
 .header {
     display: flex;
     margin-left: auto;
@@ -26,5 +28,12 @@
     max-width: 100px;
     height: 100px;
     width: 100px;
+}
+
+.titulo {
+    font-size: 50px;
+    font-weight: 800;
+    color: $blue-light;
+    text-shadow: 0 5px 10px rgb(0 0 0 / 0.2);
 }
 

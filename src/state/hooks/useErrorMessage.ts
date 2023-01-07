@@ -1,6 +1,6 @@
 import { useRecoilValue } from "recoil"
 import { displayError } from "../atom"
 
-export const getErrorMessage = () => {
+export const useErrorMessage = () => {
     return useRecoilValue(displayError)
 }

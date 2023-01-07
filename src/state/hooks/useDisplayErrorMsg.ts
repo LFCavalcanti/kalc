@@ -1,7 +1,7 @@
 import { useSetRecoilState } from "recoil"
 import { displayError } from "../atom"
 
-export const displayErrorMsg = () => {
+export const useDisplayErrorMsg = () => {
 
     const setMensagem = useSetRecoilState(displayError)
 

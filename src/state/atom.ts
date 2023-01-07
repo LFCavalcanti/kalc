@@ -7,12 +7,12 @@ export const displayError = atom<string>({
 
 export const displayResult = atom<string>({
     key: 'displayResult',
-    default: ''
+    default: '0'
 })
 
 export const displayFormula = atom<string>({
     key: 'displayFormula',
-    default: ''
+    default: '0'
 })
 
 export const calcFormula = atom<string[]>({
