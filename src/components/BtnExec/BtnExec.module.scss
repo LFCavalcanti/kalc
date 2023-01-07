@@ -12,6 +12,8 @@ $border: 0;
     margin: $margin;
     padding: $padding;
     color: $grey-neutral;
+    font-size: $btnFontSize;
+    font-weight: $btnFontWeight;
     background-color: $green-dark;
     min-height: $min-height;
     max-height: $max-height;
@@ -19,6 +21,7 @@ $border: 0;
     max-width: $max-width;
     border-radius: $border-radius;
     border: $border;
+    grid-row: span 2;
 }
 .btnExec:hover {
     background-color: $green-mid;

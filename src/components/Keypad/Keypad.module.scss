@@ -1,65 +1,38 @@
 @import "../../styleVariables.scss";
 $border-radius: 0.25rem;
 
-.keypad{
-    color: #FFFFFF;
-    display: flex;
-    flex-direction: row;
-    
-}
-.clearBtn{
-    display: flex;
-    flex-direction: row-reverse;
+.keypadFrame{
     padding: 5px;
-    //background: linear-gradient(360deg,#383836 10%,#4a4a4a 360%);
-}
-.buttons{
-    display: flex;
-    flex-direction: row;
-    width: auto;
-    padding: 5px;
-    //background: linear-gradient(360deg,#383836 10%,#4a4a4a 360%);
-}
-.advop {
-    //background-color: chartreuse;
-    padding: 5px;
-    width: 25%;
-}
-.numbers {
-    //background-color: aqua;
-    padding: 5px;
-    width: 50%;
-}
-.operations {
-    //background-color: darkgreen;
-    padding: 5px;
-    width: 25%;
+    margin: 5px;
+    width: 480px;
 }
 
-button {
-    margin: 2px;
-    padding: 2px;
-    color: #FFFFFF;
-    background-color: #4a4a4a;
-    min-height: 50px;
-    max-height: 150px;
-    min-width: 50px;
-    max-width: 150px;
-    border: 0;
+.toolBar{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    padding: 5px;
+    //background: linear-gradient(360deg,#383836 10%,#4a4a4a 360%);
 }
-button:hover {
-    background-color: #918f8f;
+
+.errorDisplayer{
+    grid-column: span 3;
 }
-button:active {
-    background-color: #c7c7c7;
+
+
+.buttons{
+    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    padding: 5px;
+    //background: linear-gradient(360deg,#383836 10%,#4a4a4a 360%);
 }
 
 .errorMsg {
-    margin: 5px;
-    padding: 5px;
+    margin: 2px;
+    padding: 2px;
     color: $blue-dark;
     background-color: $red-mid;
     border-radius: $border-radius;
-    min-width: 300px;
-    min-height: 50px;
+    //min-width: 300px;
+    min-height: 64px;
 }

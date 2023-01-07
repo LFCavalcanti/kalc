@@ -1,11 +1,8 @@
 .pannel {
-    display: block;
-    margin-bottom: 2px;
-    width: auto;
-    min-height: 2rem;
-    color: #FFFFFF;
+    display: box;
     background: linear-gradient(360deg,#383836 10%,#4a4a4a 360%);
     border-radius: 0.25rem;
-    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
     padding: 5px;
+    margin: 15px 15px 0 15px;
+    height: 100px;
 }
