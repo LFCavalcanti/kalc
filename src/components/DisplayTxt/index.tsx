@@ -11,7 +11,9 @@ export default function DisplayTxt(){
 
     return(
         <div id="display" className={styles.pannel}>
-            <p role={"textbox"} className={styles.currFormula}>{displayFormula}</p>
+            <div className={styles.currFormula}>
+                <span role={"textbox"} className={styles.currSpanFormula}>{displayFormula}</span>
+            </div>
             <p role={"textbox"} className={styles.result}>{displayResult}</p>
         </div>
     )

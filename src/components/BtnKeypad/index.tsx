@@ -1,6 +1,4 @@
-import { MouseEventHandler } from 'react'
-import { useDisplayFormula } from '../../state/hooks/useDisplayFormula'
-import { useSetDisplayFormula } from '../../state/hooks/useSetDisplayFormula'
+import useHandleKeyboard from '../../hooks/useHandleKeyboard'
 import styles from './BtnKeypad.module.scss'
 
 interface props {
@@ -13,21 +11,7 @@ export default function BtnKeypad({
     variant = 'num'
 }: props){
 
-    const setDisplayFormula = useSetDisplayFormula()
-    const displayFormula = useDisplayFormula()
-
-    const handleClick = (value: string) => {
-
-        let currFormula = displayFormula
-
-        if(currFormula === '0'){
-            currFormula = value
-        } else {
-            currFormula = currFormula + value
-        }
-
-        setDisplayFormula(currFormula)
-    }
+    const handleClick = useHandleKeyboard()
 
     return (
         <button className={variant === 'op' ? styles.btnOp : styles.btnNum} onClick={() => handleClick(text)}>{text}</button>
