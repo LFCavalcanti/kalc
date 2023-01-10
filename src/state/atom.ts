@@ -20,3 +20,7 @@ export const calcFormula = atom<string[]>({
     default: []
 })
 
+export const currElement = atom<string[]>({
+    key: 'currElement',
+    default: []
+})
