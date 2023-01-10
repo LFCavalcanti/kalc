@@ -1,5 +1,5 @@
-import { useDisplayFormula } from '../../state/hooks/useDisplayFormula'
-import { useDisplayResult } from '../../state/hooks/useDisplayResult'
+import useDisplayFormula from '../../state/hooks/useDisplayFormula'
+import useDisplayResult from '../../state/hooks/useDisplayResult'
 import styles from './DisplayTxt.module.scss'
 
 

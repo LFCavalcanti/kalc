@@ -28,34 +28,33 @@ export default function Keypad(){
 
             <div className={styles.buttons}>
 
-                <BtnKeypad text="&#8730;" variant='op'></BtnKeypad>
-                <BtnKeypad text="("></BtnKeypad>
-                <BtnKeypad text=")"></BtnKeypad>
-                <BtnKeypad text="/" variant="op"></BtnKeypad>
-                <BtnKeypad text="X" variant="op"></BtnKeypad>
+                <BtnKeypad text="&#8730;" variant='op' operation='SQRT'></BtnKeypad>
+                <BtnKeypad text="(" operation='('></BtnKeypad>
+                <BtnKeypad text=")" operation=')'></BtnKeypad>
+                <BtnKeypad text="/" variant="op" operation='/'></BtnKeypad>
+                <BtnKeypad text="X" variant="op" operation='*'></BtnKeypad>
 
-                <BtnKeypad text="X^Y" variant='op'></BtnKeypad>
-                <BtnKeypad text="7"></BtnKeypad>
-                <BtnKeypad text="8"></BtnKeypad>
-                <BtnKeypad text="9"></BtnKeypad>
-                <BtnKeypad text="-" variant="op"></BtnKeypad>
+                <BtnKeypad text="X^Y" variant='op' operation='^'></BtnKeypad>
+                <BtnKeypad text="7" operation='7'></BtnKeypad>
+                <BtnKeypad text="8" operation='8'></BtnKeypad>
+                <BtnKeypad text="9" operation='9'></BtnKeypad>
+                <BtnKeypad text="-" variant="op" operation='-'></BtnKeypad>
 
-                <BtnKeypad text="LOG" variant='op'></BtnKeypad>
-                <BtnKeypad text="4"></BtnKeypad>
-                <BtnKeypad text="5"></BtnKeypad>
-                <BtnKeypad text="6"></BtnKeypad>
-                <BtnKeypad text="+" variant="op"></BtnKeypad>
+                <BtnKeypad text="LOG" variant='op' operation='LOG'></BtnKeypad>
+                <BtnKeypad text="4" operation='4'></BtnKeypad>
+                <BtnKeypad text="5" operation='5'></BtnKeypad>
+                <BtnKeypad text="6" operation='6'></BtnKeypad>
+                <BtnKeypad text="+" variant="op" operation='+'></BtnKeypad>
                 
-                <BtnKeypad text="N!" variant='op'></BtnKeypad>
-                <BtnKeypad text="1"></BtnKeypad>
-                <BtnKeypad text="2"></BtnKeypad>
-                <BtnKeypad text="3"></BtnKeypad>
+                <BtnKeypad text="N!" variant='op' operation='!'></BtnKeypad>
+                <BtnKeypad text="1" operation='1'></BtnKeypad>
+                <BtnKeypad text="2" operation='2'></BtnKeypad>
+                <BtnKeypad text="3" operation='3'></BtnKeypad>
                 <BtnExec text="=" onClick={calculate}></BtnExec>
 
-                <BtnKeypad text="MOD" variant='op'></BtnKeypad>
-                <BtnKeypad text="%"></BtnKeypad>
-                <BtnKeypad text="0"></BtnKeypad>
-                <BtnKeypad text=","></BtnKeypad>
+                <BtnKeypad text="MOD" variant='op' operation='%'></BtnKeypad>
+                <BtnKeypad text="0" variant='0' operation='0'></BtnKeypad>
+                <BtnKeypad text="," operation=','></BtnKeypad>
             </div>
         </div>
 

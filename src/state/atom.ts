@@ -12,7 +12,7 @@ export const displayResult = atom<string>({
 
 export const displayFormula = atom<string>({
     key: 'displayFormula',
-    default: '0'
+    default: ''
 })
 
 export const calcFormula = atom<string[]>({
@@ -20,7 +20,7 @@ export const calcFormula = atom<string[]>({
     default: []
 })
 
-export const currElement = atom<string[]>({
+export const currElement = atom<string>({
     key: 'currElement',
-    default: []
+    default: ''
 })

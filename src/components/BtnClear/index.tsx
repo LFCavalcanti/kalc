@@ -12,10 +12,11 @@ export default function BtnClear({
 }: props){
 
     const handleClick = useHandleKeyboard()
+    const operation = (variant === 'c') ? 'C' : 'AC'
 
     return (
         <button className={variant === 'c' ? styles.btnC : styles.btnAc}
-                onClick={() => handleClick((variant === 'c') ? 'C' : 'AC')}
+                onClick={() => handleClick(operation)}
         >{text}</button>
     )
 }

@@ -49,3 +49,23 @@ $border: 0;
 .btnNum:active {
     background-color: $blue-light;
 }
+
+.btnZero {
+    margin: $margin;
+    padding: $padding;
+    color: $grey-neutral;
+    font-size: $btnFontSize;
+    font-weight: $btnFontWeight;
+    background-color: $grey-darkest;
+    height: $min-height;
+    width: 184px;
+    border-radius: $border-radius;
+    border: $border;
+    grid-column: span 2;
+}
+.btnZero:hover {
+    background-color: $grey-dark;
+}
+.btnZero:active {
+    background-color: $blue-light;
+}

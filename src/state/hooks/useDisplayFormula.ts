@@ -1,6 +1,8 @@
 import { useRecoilValue } from "recoil"
 import { displayFormula } from "../atom"
 
-export const useDisplayFormula = () => {
+const useDisplayFormula = () => {
     return useRecoilValue(displayFormula)
 }
+
+export default useDisplayFormula

@@ -1,6 +1,8 @@
 import { useRecoilValue } from "recoil"
 import { displayResult } from "../atom"
 
-export const useDisplayResult = () => {
+const useDisplayResult = () => {
     return useRecoilValue(displayResult)
 }
+
+export default useDisplayResult
