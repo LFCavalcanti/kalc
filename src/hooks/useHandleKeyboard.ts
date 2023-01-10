@@ -7,6 +7,8 @@ const useHandleKeyboard = () => {
 
     return (keyPressed:string) => {
 
+        //Add logic to keep the current formula element to deal with decimal separators(,.) and trigger operations and parenteses
+
         let newValue = ''
 
         if(keyPressed === 'AC'){
