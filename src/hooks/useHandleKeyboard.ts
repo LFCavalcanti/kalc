@@ -27,43 +27,60 @@ const useHandleKeyboard = () => {
 
     return (keyPressed:string) => {
 
-        //BUGS: 5!LOG
-        //Add logic to keep the current formula element to deal with decimal separators(,.) and trigger operations and parenteses
-
         let numReg = new RegExp(/[0-9]/)
 
+        //NUMBERS
         if(numReg.test(keyPressed)){
             if(calcFormula[calcFormula.length -1] && calcFormula[calcFormula.length -1] === '!') return
             setDisplayFormula((!displayFormula) ? keyPressed : displayFormula + keyPressed)
             setCurrElement(currElement + keyPressed)
         }
+
+        //ERASE ALL
         else if(keyPressed === 'AC'){
             setDisplayFormula('')
             setDisplayResult('0')
             setCurrElement('')
             popCalcFormula(true)
         }
+
+        //DELETE CHAR FROM NUMBER OR OPERATION
         else if (keyPressed === 'C') {
-            if(!currElement) setCurrElement(popCalcFormula())
-            setCurrElement(currElement.slice(0,-1))
-            setDisplayFormula(displayFormula.slice(0,-1))
+
+            let charsToDel = 1
+            let tmpCurrElement = (currElement) ? currElement : popCalcFormula()
+
+            if(!tmpCurrElement) return
+
+            if(!numReg.test(tmpCurrElement)) charsToDel = tmpCurrElement.length
+
+            setCurrElement(tmpCurrElement.slice(0, -charsToDel))
+
+            setDisplayFormula(displayFormula.slice(0, -charsToDel))
+            
         }
+
+        //COMMA
         else if (keyPressed === ',') {
-            if(!currElement.includes(',')) {
-                let addComma = (!currElement) ? '0' + keyPressed : keyPressed
-                setDisplayFormula((!displayFormula) ? addComma : displayFormula + addComma)
-                setCurrElement(currElement + addComma)
-            }
+            if(currElement.includes(',')) return
+            let addComma = (!currElement) ? '0' + keyPressed : keyPressed
+            setDisplayFormula((!displayFormula) ? addComma : displayFormula + addComma)
+            setCurrElement(currElement + addComma)
         }
+
+        //PARENTESES
         else if(keyPressed === '(' || keyPressed === ')') {
-            //Lidar com parenteses
-        } else {
-            //lidar com operações matemáticas
-            //sempre que for operação checar se pressionado e atual são váldos
-            if(keyPressed === calcFormula[calcFormula.length -1]) return
-            if(operationsHandler((currElement) ? currElement : calcFormula[calcFormula.length -1] , keyPressed)){
+            console.log('PARENTESES')
+        }
+
+        //MATH OPERATIONS
+        else {
+
+            let currOperation = (currElement) ? currElement : calcFormula[calcFormula.length -1]
+            if(keyPressed === currOperation) return
+            if(operationsHandler(currOperation , keyPressed)){
                 setDisplayFormula((!displayFormula) ? keyPressed : displayFormula + keyPressed)
-                pushCalcFormula(currElement)
+                if(currElement) pushCalcFormula(currElement)
                 pushCalcFormula(keyPressed)
                 setCurrElement('')
             }

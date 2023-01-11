@@ -7,34 +7,20 @@
 
 
 
-// key = Operation | value = if allows only numbers before, else only operators
+// key = Operation | value = RegEx with only the allowed elements before current operation
 const operations = new Map([
-    ['+' ,true],
-    ['-' ,true],
-    ['*' ,true],
-    ['/' ,true],
-    ['^' ,true],
-    ['%' ,true],
-    ['!' ,true],
-    ['SQRT' ,false],
-    ['LOG' ,false]
+    ['+' , /[0-9\!\)],{0}$/],
+    ['-' , /[0-9\!\)],{0}$/],
+    ['*' , /[0-9\!\)],{0}$/],
+    ['/' , /[0-9\!\)],{0}$/],
+    ['^' , /[0-9\!\)],{0}$/],
+    ['%' , /[0-9\!\)],{0}$/],
+    ['!' , /[0-9\!\)],{0}$/],
+    ['SQRT' , /[+\-*\/\^%!]/],
+    ['LOG' , /[+\-*\/\^%!]/]
 ])
 
 export default function operationsHandler(previousElement:string, currOperation:string){
-
-    console.log('ENTROU NO HANDLER')
-    console.log(`PARAMS - PREVOUS: ${previousElement} OPERATION: ${currOperation}`)
-
-    let numReg = new RegExp(/[0-9]/)
-
-    if(numReg.test(previousElement) && operations.get(currOperation)){
-        console.log('COMO SE ANTERIOR FOSSE NUMERO')
-        return true
-    } else if (!(operations.get(currOperation) && !numReg.test(previousElement)) || previousElement === '!'){
-        console.log('COMO SE ANTERIOR FOSSE OPERACAO')
-        return true
-    } else {
-        return false
-    }
- 
+    let condTest = operations.get(currOperation)
+    return condTest?.test(previousElement)
 }
