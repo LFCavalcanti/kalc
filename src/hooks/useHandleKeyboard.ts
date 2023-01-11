@@ -53,9 +53,7 @@ const useHandleKeyboard = () => {
             if(!tmpCurrElement) return
 
             if(!numReg.test(tmpCurrElement)) charsToDel = tmpCurrElement.length
-
             setCurrElement(tmpCurrElement.slice(0, -charsToDel))
-
             setDisplayFormula(displayFormula.slice(0, -charsToDel))
             
         }
@@ -63,18 +61,42 @@ const useHandleKeyboard = () => {
         //COMMA
         else if (keyPressed === ',') {
             if(currElement.includes(',')) return
-            let addComma = (!currElement) ? '0' + keyPressed : keyPressed
+            let addComma = (!currElement) ? '0,' : keyPressed
             setDisplayFormula((!displayFormula) ? addComma : displayFormula + addComma)
             setCurrElement(currElement + addComma)
         }
 
         //PARENTESES
         else if(keyPressed === '(' || keyPressed === ')') {
-            console.log('PARENTESES')
+
+            if(keyPressed === '(' && !calcFormula.length && !currElement){
+                pushCalcFormula(keyPressed)
+                setDisplayFormula(keyPressed)
+                return
+            }
+
+            let currOperation = (currElement) ? currElement : calcFormula[calcFormula.length -1]
+            if(operationsHandler(currOperation , keyPressed)){
+                setDisplayFormula((!displayFormula) ? keyPressed : displayFormula + keyPressed)
+                if(currElement) pushCalcFormula(currElement)
+                pushCalcFormula(keyPressed)
+                setCurrElement('')
+            }
+        }
+
+        //CALCULATE FORMULA
+        else if(keyPressed === '='){
+
         }
 
         //MATH OPERATIONS
         else {
+
+            if((keyPressed === String.fromCharCode(8730) || keyPressed === String.fromCharCode(13266)) && !calcFormula.length && !currElement){
+                pushCalcFormula(keyPressed)
+                setDisplayFormula(keyPressed)
+                return
+            }
 
             let currOperation = (currElement) ? currElement : calcFormula[calcFormula.length -1]
             if(keyPressed === currOperation) return

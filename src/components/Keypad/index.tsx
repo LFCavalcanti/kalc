@@ -28,7 +28,7 @@ export default function Keypad(){
 
             <div className={styles.buttons}>
 
-                <BtnKeypad text="&#8730;" variant='op' operation='SQRT'></BtnKeypad>
+                <BtnKeypad text={String.fromCharCode(8730)} variant='op' operation={String.fromCharCode(8730)}></BtnKeypad>
                 <BtnKeypad text="(" operation='('></BtnKeypad>
                 <BtnKeypad text=")" operation=')'></BtnKeypad>
                 <BtnKeypad text="/" variant="op" operation='/'></BtnKeypad>
@@ -40,7 +40,7 @@ export default function Keypad(){
                 <BtnKeypad text="9" operation='9'></BtnKeypad>
                 <BtnKeypad text="-" variant="op" operation='-'></BtnKeypad>
 
-                <BtnKeypad text="LOG" variant='op' operation='LOG'></BtnKeypad>
+                <BtnKeypad text={String.fromCharCode(13266)} variant='op' operation={String.fromCharCode(13266)}></BtnKeypad>
                 <BtnKeypad text="4" operation='4'></BtnKeypad>
                 <BtnKeypad text="5" operation='5'></BtnKeypad>
                 <BtnKeypad text="6" operation='6'></BtnKeypad>
