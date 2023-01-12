@@ -10,11 +10,6 @@ export default function Keypad(){
     const errorMessage = useErrorMessage()
     const displayError = useDisplayErrorMsg()
 
-    const calculate = () => {
-        displayError('TESTANDO MENSAGEM 5 segundos', 5000)
-    }
-    
-
     return(
         <div className={styles.keypadFrame}>
 
@@ -50,10 +45,11 @@ export default function Keypad(){
                 <BtnKeypad text="1" operation='1'></BtnKeypad>
                 <BtnKeypad text="2" operation='2'></BtnKeypad>
                 <BtnKeypad text="3" operation='3'></BtnKeypad>
-                <BtnExec text="=" onClick={calculate}></BtnExec>
+                <BtnExec text="="></BtnExec>
 
                 <BtnKeypad text="MOD" variant='op' operation='%'></BtnKeypad>
-                <BtnKeypad text="0" variant='0' operation='0'></BtnKeypad>
+                <BtnKeypad text="-/+" operation='NEG'></BtnKeypad>
+                <BtnKeypad text="0" operation='0'></BtnKeypad>
                 <BtnKeypad text="," operation=','></BtnKeypad>
             </div>
         </div>

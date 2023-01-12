@@ -8,6 +8,7 @@ import usePushCalcFormula from "../state/hooks/usePushCalcFormula"
 import useSetCurrElement from "../state/hooks/useSetCurrElement"
 import useSetDisplayFormula from "../state/hooks/useSetDisplayFormula"
 import useSetDisplayResult from "../state/hooks/useSetDisplayResult"
+import { useDisplayErrorMsg } from "../state/hooks/useDisplayErrorMsg"
 
 const useHandleKeyboard = () => {
 
@@ -24,6 +25,8 @@ const useHandleKeyboard = () => {
     const popCalcFormula = usePopCalcFormula()
     const pushCalcFormula = usePushCalcFormula()
 
+    const displayError = useDisplayErrorMsg()
+
 
     return (keyPressed:string) => {
 
@@ -34,6 +37,23 @@ const useHandleKeyboard = () => {
             if(calcFormula[calcFormula.length -1] && calcFormula[calcFormula.length -1] === '!') return
             setDisplayFormula((!displayFormula) ? keyPressed : displayFormula + keyPressed)
             setCurrElement(currElement + keyPressed)
+        }
+
+        //SWITCH SIGNAL
+        else if(keyPressed === 'NEG'){
+            
+            let currElementLen = currElement.length
+            let tempElement = currElement
+            
+            if(currElement.includes('-')) {
+                setCurrElement(tempElement.slice(1))
+                setDisplayFormula(displayFormula.slice(0,(displayFormula.length - currElementLen)) + tempElement.slice(1))
+                return
+            }
+
+            setCurrElement((currElementLen) ? '-' + tempElement : '-')
+            setDisplayFormula((currElementLen) ? displayFormula.slice(0,(displayFormula.length - currElementLen)) + '-' + tempElement : displayFormula + '-')
+
         }
 
         //ERASE ALL
@@ -87,6 +107,25 @@ const useHandleKeyboard = () => {
         //CALCULATE FORMULA
         else if(keyPressed === '='){
 
+            let testElement = new RegExp(/[0-9]{1,}/)
+            let testLast = new RegExp(/[0-9)!]/)
+
+            if(currElement && !testElement.test(currElement)) {
+                displayError('Elemento atual é inválido', 5000)
+                return
+            }
+
+            if(!currElement && !testLast.test(calcFormula[calcFormula.length -1])){
+                displayError(`Elemento anterior fórmula("${calcFormula[calcFormula.length -1]}") é inválido`, 5000)
+                return
+            }
+
+
+            console.log('CALCULANDO')
+            /*
+            if(currElement) pushCalcFormula(currElement)
+            let resultado = calculateFormula()
+            */
         }
 
         //MATH OPERATIONS

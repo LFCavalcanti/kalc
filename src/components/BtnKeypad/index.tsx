@@ -16,6 +16,6 @@ export default function BtnKeypad({
     const handleClick = useHandleKeyboard()
 
     return (
-        <button className={variant === 'op' ? styles.btnOp : (variant === '0') ? styles.btnZero : styles.btnNum} onClick={() => handleClick(operation)}>{text}</button>
+        <button className={variant === 'op' ? styles.btnOp : styles.btnNum} onClick={() => handleClick(operation)}>{text}</button>
     )
 }

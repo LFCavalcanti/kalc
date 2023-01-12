@@ -1,15 +1,17 @@
 import styles from './BtnExec.module.scss'
+import useHandleKeyboard from '../../hooks/useHandleKeyboard'
 
 interface props {
     text: string
-    onClick:()=>void
 }
 
 export default function BtnExec({
-    text = 'Botão',
-    onClick
+    text = 'Botão'
 }: props){
+
+    const handleClick = useHandleKeyboard()
+
     return (
-        <button className={styles.btnExec} onClick={onClick}>{text}</button>
+        <button className={styles.btnExec} onClick={() => handleClick('=')}>{text}</button>
     )
 }
