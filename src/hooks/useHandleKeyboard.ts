@@ -9,6 +9,7 @@ import useSetCurrElement from "../state/hooks/useSetCurrElement"
 import useSetDisplayFormula from "../state/hooks/useSetDisplayFormula"
 import useSetDisplayResult from "../state/hooks/useSetDisplayResult"
 import { useDisplayErrorMsg } from "../state/hooks/useDisplayErrorMsg"
+import calculateFormula from "../helpers/calculateFormula"
 
 const useHandleKeyboard = () => {
 
@@ -111,26 +112,27 @@ const useHandleKeyboard = () => {
             let testLast = new RegExp(/[0-9)!]/)
 
             if(currElement && !testElement.test(currElement)) {
-                displayError('Elemento atual é inválido', 5000)
+                displayError('Current element is invalid', 5000)
                 return
             }
 
             if(!currElement && !testLast.test(calcFormula[calcFormula.length -1])){
-                displayError(`Elemento anterior fórmula("${calcFormula[calcFormula.length -1]}") é inválido`, 5000)
+                displayError(`Previous formula element ${calcFormula[calcFormula.length -1]} makes it invalid`, 5000)
                 return
             }
 
 
-            console.log('CALCULANDO')
-            /*
-            if(currElement) pushCalcFormula(currElement)
-            let resultado = calculateFormula()
-            */
+            try {
+                calculateFormula([...calcFormula])
+            } catch(error) {
+                displayError(`${error}`, 5000)
+            }
         }
 
         //MATH OPERATIONS
         else {
 
+            //RADIC(8730) AND LOGe(13266)
             if((keyPressed === String.fromCharCode(8730) || keyPressed === String.fromCharCode(13266)) && !calcFormula.length && !currElement){
                 pushCalcFormula(keyPressed)
                 setDisplayFormula(keyPressed)

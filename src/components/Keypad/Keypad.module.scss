@@ -26,11 +26,14 @@ $border-radius: 0.25rem;
 }
 .errorMsg {
     margin: 2px;
-    padding: 2px;
+    padding: 5px;
     color: $blue-dark;
     background-color: $red-mid;
     border-radius: $border-radius;
+    border-color: $red-dark;
+    border-style: solid;
+    border-width: thin;
     font-size: 20px;
-    height: 65px;
+    height: 58px;
     overflow: hidden;
 }
