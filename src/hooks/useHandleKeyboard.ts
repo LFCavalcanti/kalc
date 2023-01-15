@@ -28,8 +28,26 @@ const useHandleKeyboard = () => {
 
     const displayError = useDisplayErrorMsg()
 
+    // TODO: Solve Bug (2^(2*5))
 
     return (keyPressed:string) => {
+
+        if(displayResult != '0' && !(keyPressed === 'C' || keyPressed === 'AC')){
+
+            if(keyPressed === "=" ){
+                return
+            }
+
+            let resultado = displayResult
+
+            popCalcFormula(true)
+            pushCalcFormula(resultado)            
+            setDisplayFormula(resultado)
+            setCurrElement('')
+            setDisplayResult('0')
+            displayError('Result reused, type again', 2000)
+            return
+        }
 
         let numReg = new RegExp(/[0-9]/)
 
@@ -121,12 +139,21 @@ const useHandleKeyboard = () => {
                 return
             }
 
+            let result = 0
 
             try {
-                calculateFormula([...calcFormula])
+                if(currElement){
+                    result = calculateFormula([...calcFormula, currElement])
+                }else{
+                    result = calculateFormula(calcFormula.slice())
+                }
             } catch(error) {
                 displayError(`${error}`, 5000)
             }
+
+            setDisplayResult(result.toString())
+            return
+
         }
 
         //MATH OPERATIONS
