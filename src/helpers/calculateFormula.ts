@@ -21,8 +21,6 @@ export default function calculateFormula(
 
         let formLen = formula.length
 
-        console.log(formula)
-
         for(let idx = 0; idx < formLen; idx++){
 
             if(formula[idx] === ')'){
@@ -45,7 +43,6 @@ export default function calculateFormula(
 
                 calculationStack.pop()//Pop "("
                 calculationStack.push(currResult)
-                console.log(calculationStack)
 
             } else {
                 calculationStack.push(formula[idx])

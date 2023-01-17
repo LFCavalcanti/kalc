@@ -1,7 +1,5 @@
 export default function processOperation(currOperation:string = '', previous:number, next: number){
 
-    console.log(`CALCULATING: ${previous} ${currOperation} ${next}`)
-
     if(currOperation === '-'){
         return previous - next
     }

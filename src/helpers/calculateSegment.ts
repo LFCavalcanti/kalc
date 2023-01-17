@@ -26,18 +26,12 @@ export default function calculateSegment(segment:any[]){
 
         for(let idx = 0; idx < len; idx++){
 
-            //console.log(`${workFormula[idx]} -> ${currOperation!.operation}`)
 
             if(currOperation && workFormula[idx] === currOperation.operation){
-
-                console.log(workFormula)
-                console.log(`ENTROU EM CALCULO NA POSICAO ${idx}`)
 
                 let previous = (currOperation.needPrevious) ? currPass.pop() : 0
                 let next = (currOperation.needNext) ? workFormula[idx + 1] : 0
                 let currResult = 0
-
-                console.log(`PARAMETROS MONTADOS || OPERATION: ${currOperation.operation} PREVIOUS: ${previous} NEXT ${next}`)
 
                 try{
                     currResult = processOperation(currOperation.operation, Number(previous), Number(next))
@@ -57,8 +51,6 @@ export default function calculateSegment(segment:any[]){
         workFormula = currPass
 
     }
-
-    console.log(workFormula)
 
     if(workFormula.length !== 1) throw 'Invalid Formula'
 
