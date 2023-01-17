@@ -29,6 +29,11 @@ const useHandleKeyboard = () => {
     const displayError = useDisplayErrorMsg()
 
     // TODO: Solve Bug (2^(2*5))
+    /*
+        VER PRINT NA AREA DE TRABALHO, PROBLEMA PARECE SER NA ORDEM DE
+        PREENCHER AS STACKS EM CADA ETAPA
+
+    */
 
     return (keyPressed:string) => {
 

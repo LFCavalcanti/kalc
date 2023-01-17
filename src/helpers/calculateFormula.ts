@@ -30,13 +30,14 @@ export default function calculateFormula(
                 let calcSegment:any[] = []
 
                 while(calculationStack[calculationStack.length - 1] !== '('){
+                    // TODO: Inverter ordem de inserção no array ou inverter array
                     calcSegment.push(calculationStack.pop())
                 }
 
                 let currResult:number = 0
 
                 try{
-                    currResult = calculateSegment(calcSegment)
+                    currResult = calculateSegment(calcSegment.reverse())
 
                 } catch(error) {
                     throw error
@@ -44,6 +45,7 @@ export default function calculateFormula(
 
                 calculationStack.pop()//Pop "("
                 calculationStack.push(currResult)
+                console.log(calculationStack)
 
             } else {
                 calculationStack.push(formula[idx])
