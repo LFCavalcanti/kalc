@@ -1,4 +1,6 @@
-![Logo Kalk](./public/logo_kalc.svg) 
+
+<img src="https://github.com/LFCavalcanti/kalc/raw/main/public/logo_kalc.svg" align="left" height="150" width="150" >
+
 # KALC - Not so simple calculator using React written in TypeScript
 ![license](https://img.shields.io/github/license/LFCavalcanti/kalc?color=green)
 
