@@ -21,7 +21,7 @@ Another choice was to use Vite instead of CRA to learn it's ins and outs.
 ![typescript](https://img.shields.io/github/package-json/dependency-version/lfcavalcanti/kalc/dev/typescript?color=green)
 ![sass](https://img.shields.io/github/package-json/dependency-version/lfcavalcanti/kalc/dev/sass?color=green)
 ![jsdom](https://img.shields.io/github/package-json/dependency-version/lfcavalcanti/kalc/dev/jsdom?color=green)
-![vitest](https://img.shields.io/github/package-json/dependency-version/lfcavalcanti/kalc/dev/vite-plugin-svgr?color=green)
+![vitest](https://img.shields.io/github/package-json/dependency-version/lfcavalcanti/kalc/dev/vitest?color=green)
 ![vite-plugin-live-reload](https://img.shields.io/github/package-json/dependency-version/lfcavalcanti/kalc/dev/vite-plugin-live-reload?color=green)
 ![vite-plugin-svgr](https://img.shields.io/github/package-json/dependency-version/lfcavalcanti/kalc/dev/vite-plugin-svgr?color=green)
 ![@vitejs/plugin-react](https://img.shields.io/github/package-json/dependency-version/lfcavalcanti/kalc/dev/@vitejs/plugin-react?color=green)

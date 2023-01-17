@@ -1,20 +1,15 @@
 import operationsHandler from "../helpers/operationsHandler"
 import useCurrElement from "../state/hooks/useCurrElement"
-import useDisplayFormula from "../state/hooks/useDisplayFormula"
 import useDisplayResult from "../state/hooks/useDisplayResult"
 import useCalcFormula from "../state/hooks/useCalcFormula"
 import usePopCalcFormula from "../state/hooks/usePopCalcFormula"
 import usePushCalcFormula from "../state/hooks/usePushCalcFormula"
 import useSetCurrElement from "../state/hooks/useSetCurrElement"
-import useSetDisplayFormula from "../state/hooks/useSetDisplayFormula"
 import useSetDisplayResult from "../state/hooks/useSetDisplayResult"
 import { useDisplayErrorMsg } from "../state/hooks/useDisplayErrorMsg"
 import calculateFormula from "../helpers/calculateFormula"
 
 const useHandleKeyboard = () => {
-
-    const displayFormula = useDisplayFormula()
-    const setDisplayFormula = useSetDisplayFormula()
 
     const currElement = useCurrElement()
     const setCurrElement = useSetCurrElement()
@@ -28,30 +23,18 @@ const useHandleKeyboard = () => {
 
     const displayError = useDisplayErrorMsg()
 
-    // TODO: Solve Bug (2^(2*5))
-    /*
-        VER PRINT NA AREA DE TRABALHO, PROBLEMA PARECE SER NA ORDEM DE
-        PREENCHER AS STACKS EM CADA ETAPA
-
-    */
-
     return (keyPressed:string) => {
 
-        if(displayResult != '0' && !(keyPressed === 'C' || keyPressed === 'AC')){
+        if(displayResult != '0' && keyPressed !== 'AC'){
 
-            if(keyPressed === "=" ){
+            if(keyPressed === "=" || keyPressed === 'C' ){
                 return
             }
 
-            let resultado = displayResult
-
             popCalcFormula(true)
-            pushCalcFormula(resultado)            
-            setDisplayFormula(resultado)
-            setCurrElement('')
+            pushCalcFormula(displayResult)            
             setDisplayResult('0')
-            displayError('Result reused, type again', 2000)
-            return
+
         }
 
         let numReg = new RegExp(/[0-9]/)
@@ -59,7 +42,6 @@ const useHandleKeyboard = () => {
         //NUMBERS
         if(numReg.test(keyPressed)){
             if(calcFormula[calcFormula.length -1] && calcFormula[calcFormula.length -1] === '!') return
-            setDisplayFormula((!displayFormula) ? keyPressed : displayFormula + keyPressed)
             setCurrElement(currElement + keyPressed)
         }
 
@@ -71,18 +53,15 @@ const useHandleKeyboard = () => {
             
             if(currElement.includes('-')) {
                 setCurrElement(tempElement.slice(1))
-                setDisplayFormula(displayFormula.slice(0,(displayFormula.length - currElementLen)) + tempElement.slice(1))
                 return
             }
 
             setCurrElement((currElementLen) ? '-' + tempElement : '-')
-            setDisplayFormula((currElementLen) ? displayFormula.slice(0,(displayFormula.length - currElementLen)) + '-' + tempElement : displayFormula + '-')
 
         }
 
         //ERASE ALL
         else if(keyPressed === 'AC'){
-            setDisplayFormula('')
             setDisplayResult('0')
             setCurrElement('')
             popCalcFormula(true)
@@ -98,7 +77,6 @@ const useHandleKeyboard = () => {
 
             if(!numReg.test(tmpCurrElement)) charsToDel = tmpCurrElement.length
             setCurrElement(tmpCurrElement.slice(0, -charsToDel))
-            setDisplayFormula(displayFormula.slice(0, -charsToDel))
             
         }
 
@@ -106,7 +84,6 @@ const useHandleKeyboard = () => {
         else if (keyPressed === ',') {
             if(currElement.includes(',')) return
             let addComma = (!currElement) ? '0,' : keyPressed
-            setDisplayFormula((!displayFormula) ? addComma : displayFormula + addComma)
             setCurrElement(currElement + addComma)
         }
 
@@ -115,13 +92,11 @@ const useHandleKeyboard = () => {
 
             if(keyPressed === '(' && !calcFormula.length && !currElement){
                 pushCalcFormula(keyPressed)
-                setDisplayFormula(keyPressed)
                 return
             }
 
             let currOperation = (currElement) ? currElement : calcFormula[calcFormula.length -1]
             if(operationsHandler(currOperation , keyPressed)){
-                setDisplayFormula((!displayFormula) ? keyPressed : displayFormula + keyPressed)
                 if(currElement) pushCalcFormula(currElement)
                 pushCalcFormula(keyPressed)
                 setCurrElement('')
@@ -156,6 +131,8 @@ const useHandleKeyboard = () => {
                 displayError(`${error}`, 5000)
             }
 
+            pushCalcFormula(currElement)
+            setCurrElement('')
             setDisplayResult(result.toString())
             return
 
@@ -167,14 +144,12 @@ const useHandleKeyboard = () => {
             //RADIC(8730) AND LOGe(13266)
             if((keyPressed === String.fromCharCode(8730) || keyPressed === String.fromCharCode(13266)) && !calcFormula.length && !currElement){
                 pushCalcFormula(keyPressed)
-                setDisplayFormula(keyPressed)
                 return
             }
 
             let currOperation = (currElement) ? currElement : calcFormula[calcFormula.length -1]
             if(keyPressed === currOperation) return
             if(operationsHandler(currOperation , keyPressed)){
-                setDisplayFormula((!displayFormula) ? keyPressed : displayFormula + keyPressed)
                 if(currElement) pushCalcFormula(currElement)
                 pushCalcFormula(keyPressed)
                 setCurrElement('')
