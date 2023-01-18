@@ -5,6 +5,7 @@ import liveReload from 'vite-plugin-live-reload';
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: './',
   plugins: [react(),svgr(),liveReload('.path')],
   test: {
     globals: true,
