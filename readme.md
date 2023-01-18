@@ -16,7 +16,7 @@ Another choice was to use Vite instead of CRA to learn it's ins and outs.
 ![react-dom](https://img.shields.io/github/package-json/dependency-version/lfcavalcanti/kalc/react-dom?color=important)
 ![recoil](https://img.shields.io/github/package-json/dependency-version/lfcavalcanti/kalc/recoil?color=important)
 
-### DEV - MAIN PACAKGES
+### DEV - MAIN PACKAGES
 ![vite](https://img.shields.io/github/package-json/dependency-version/lfcavalcanti/kalc/dev/vite?color=green)
 ![typescript](https://img.shields.io/github/package-json/dependency-version/lfcavalcanti/kalc/dev/typescript?color=green)
 ![sass](https://img.shields.io/github/package-json/dependency-version/lfcavalcanti/kalc/dev/sass?color=green)
