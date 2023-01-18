@@ -35,8 +35,8 @@ export default function calculateSegment(segment:any[]){
 
                 try{
                     currResult = processOperation(currOperation.operation, Number(previous), Number(next))
-                } catch {
-                    throw `Error calculating segment: ${previous} ${currOperation} ${next}`
+                } catch(error) {
+                    throw error
                 }
 
                 currPass.push(currResult)

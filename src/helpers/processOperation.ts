@@ -44,6 +44,5 @@ export default function processOperation(currOperation:string = '', previous:num
     }
 
     throw 'Invalid operation'
-    return 0
 
 }
