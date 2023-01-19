@@ -30,7 +30,7 @@ export default function DisplayTxt(){
             <div className={styles.currFormula}>
                 <span role={"textbox"} className={styles.currSpanFormula}>{displayFormula}</span>
             </div>
-            <p role={"textbox"} className={styles.result}>{displayResult}</p>
+            <p role={"status"} className={styles.result}>{displayResult}</p>
         </div>
     )
 }

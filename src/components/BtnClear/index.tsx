@@ -15,7 +15,7 @@ export default function BtnClear({
     const operation = (variant === 'c') ? 'C' : 'AC'
 
     return (
-        <button className={variant === 'c' ? styles.btnC : styles.btnAc}
+        <button role={'button'} className={variant === 'c' ? styles.btnC : styles.btnAc}
                 onClick={() => handleClick(operation)}
         >{text}</button>
     )

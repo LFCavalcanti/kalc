@@ -12,6 +12,6 @@ export default function BtnExec({
     const handleClick = useHandleKeyboard()
 
     return (
-        <button className={styles.btnExec} onClick={() => handleClick('=')}>{text}</button>
+        <button role={'button'} className={styles.btnExec} onClick={() => handleClick('=')}>{text}</button>
     )
 }
