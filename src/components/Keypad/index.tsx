@@ -15,7 +15,7 @@ export default function Keypad(){
 
             <div className={styles.toolBar}>
                 <div className={styles.errorDisplayer}>
-                    {errorMessage && <p className={styles.errorMsg}>{errorMessage}</p>}
+                    {errorMessage && <p role='alert' className={styles.errorMsg}>{errorMessage}</p>}
                 </div>
                 <BtnClear text="AC" variant="ac"></BtnClear>
                 <BtnClear text="C"></BtnClear>
