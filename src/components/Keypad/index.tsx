@@ -17,40 +17,40 @@ export default function Keypad(){
                 <div className={styles.errorDisplayer}>
                     {errorMessage && <p role='alert' className={styles.errorMsg}>{errorMessage}</p>}
                 </div>
-                <BtnClear text="AC" variant="ac"></BtnClear>
-                <BtnClear text="C"></BtnClear>
+                <BtnClear variant="ac">AC</BtnClear>
+                <BtnClear >C</BtnClear>
             </div>
 
             <div className={styles.buttons}>
 
-                <BtnKeypad text={String.fromCharCode(8730)} variant='op' operation={String.fromCharCode(8730)}></BtnKeypad>
-                <BtnKeypad text="(" operation='('></BtnKeypad>
-                <BtnKeypad text=")" operation=')'></BtnKeypad>
-                <BtnKeypad text="/" variant="op" operation='/'></BtnKeypad>
-                <BtnKeypad text="X" variant="op" operation='*'></BtnKeypad>
+                <BtnKeypad variant='op' operation={String.fromCharCode(8730)}>{String.fromCharCode(8730)}</BtnKeypad>
+                <BtnKeypad operation='('>(</BtnKeypad>
+                <BtnKeypad operation=')'>)</BtnKeypad>
+                <BtnKeypad variant="op" operation='/'>/</BtnKeypad>
+                <BtnKeypad variant="op" operation='*'>X</BtnKeypad>
 
-                <BtnKeypad text="X^Y" variant='op' operation='^'></BtnKeypad>
-                <BtnKeypad text="7" operation='7'></BtnKeypad>
-                <BtnKeypad text="8" operation='8'></BtnKeypad>
-                <BtnKeypad text="9" operation='9'></BtnKeypad>
-                <BtnKeypad text="-" variant="op" operation='-'></BtnKeypad>
+                <BtnKeypad variant='op' operation='^'>X^Y</BtnKeypad>
+                <BtnKeypad operation='7'>7</BtnKeypad>
+                <BtnKeypad operation='8'>8</BtnKeypad>
+                <BtnKeypad operation='9'>9</BtnKeypad>
+                <BtnKeypad variant="op" operation='-'>-</BtnKeypad>
 
-                <BtnKeypad text={String.fromCharCode(13266)} variant='op' operation={String.fromCharCode(13266)}></BtnKeypad>
-                <BtnKeypad text="4" operation='4'></BtnKeypad>
-                <BtnKeypad text="5" operation='5'></BtnKeypad>
-                <BtnKeypad text="6" operation='6'></BtnKeypad>
-                <BtnKeypad text="+" variant="op" operation='+'></BtnKeypad>
+                <BtnKeypad variant='op' operation={String.fromCharCode(13266)}>{String.fromCharCode(13266)}</BtnKeypad>
+                <BtnKeypad operation='4'>4</BtnKeypad>
+                <BtnKeypad operation='5'>5</BtnKeypad>
+                <BtnKeypad operation='6'>6</BtnKeypad>
+                <BtnKeypad variant="op" operation='+'>+</BtnKeypad>
                 
-                <BtnKeypad text="N!" variant='op' operation='!'></BtnKeypad>
-                <BtnKeypad text="1" operation='1'></BtnKeypad>
-                <BtnKeypad text="2" operation='2'></BtnKeypad>
-                <BtnKeypad text="3" operation='3'></BtnKeypad>
-                <BtnExec text="="></BtnExec>
+                <BtnKeypad variant='op' operation='!'>N!</BtnKeypad>
+                <BtnKeypad operation='1'>1</BtnKeypad>
+                <BtnKeypad operation='2'>2</BtnKeypad>
+                <BtnKeypad operation='3'>3</BtnKeypad>
+                <BtnExec>=</BtnExec>
 
-                <BtnKeypad text="MOD" variant='op' operation='%'></BtnKeypad>
-                <BtnKeypad text="-/+" operation='NEG'></BtnKeypad>
-                <BtnKeypad text="0" operation='0'></BtnKeypad>
-                <BtnKeypad text="," operation=','></BtnKeypad>
+                <BtnKeypad variant='op' operation='%'>MOD</BtnKeypad>
+                <BtnKeypad operation='NEG'>-/+</BtnKeypad>
+                <BtnKeypad operation='0'>0</BtnKeypad>
+                <BtnKeypad operation=','>,</BtnKeypad>
             </div>
         </div>
 

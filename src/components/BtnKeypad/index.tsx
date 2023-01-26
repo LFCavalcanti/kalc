@@ -2,20 +2,20 @@ import useHandleKeyboard from '../../hooks/useHandleKeyboard'
 import styles from './BtnKeypad.module.scss'
 
 interface props {
-    text: string,
+    children: string,
     operation: string,
     variant?: string,
 }
 
 export default function BtnKeypad({
-    text = 'Botão',
+    children = 'Botão',
     operation,
-    variant = 'num'
+    variant = 'num',
 }: props){
 
     const handleClick = useHandleKeyboard()
 
     return (
-        <button role={'button'} className={variant === 'op' ? styles.btnOp : styles.btnNum} onClick={() => handleClick(operation)}>{text}</button>
+        <button role={'button'} className={variant === 'op' ? styles.btnOp : styles.btnNum} onClick={() => handleClick(operation)}>{children}</button>
     )
 }

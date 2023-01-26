@@ -2,12 +2,12 @@ import useHandleKeyboard from '../../hooks/useHandleKeyboard'
 import styles from './BtnClear.module.scss'
 
 interface props {
-    text: string,
+    children: string,
     variant?: string
 }
 
 export default function BtnClear({
-    text = 'Botão',
+    children = 'Botão',
     variant = 'c'
 }: props){
 
@@ -17,6 +17,6 @@ export default function BtnClear({
     return (
         <button role={'button'} className={variant === 'c' ? styles.btnC : styles.btnAc}
                 onClick={() => handleClick(operation)}
-        >{text}</button>
+        >{children}</button>
     )
 }
