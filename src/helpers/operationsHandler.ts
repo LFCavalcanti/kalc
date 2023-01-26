@@ -17,9 +17,9 @@ const operations = new Map([
     ['%' , /[0-9\!\)],{0}$/],
     ['!' , /[0-9\)],{0}$/],
     [')' , /[0-9\!\)],{0}$/],
-    ['(' , /[+\-*\/\^%!(]/],
-    [String.fromCharCode(8730) , /[+\-*\/\^%!]|(?:\u33D2)/], //RADIC u33D2
-    [String.fromCharCode(13266) , /[+\-*\/\^%!]|(?:\u221A)/] //LOG
+    ['(' , /[+\-*\/\^%(]/],
+    [String.fromCharCode(8730) , /[+\-*\/\^%\(]|(?:\u33D2)/], //RADIC u33D2
+    [String.fromCharCode(13266) , /[+\-*\/\^%\(]|(?:\u221A)/] //LOG
 ])
 
 export default function operationsHandler(previousElement:string, currOperation:string){
