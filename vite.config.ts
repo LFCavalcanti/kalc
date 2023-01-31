@@ -12,7 +12,7 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: './tests/setup.js',
     coverage: {
-      reporter: ["text", 'html']
+      reporter: ["text", 'html','text-summary']
     }
   },
 })
